@@ -12,6 +12,8 @@ reddit = praw.Reddit(client_id = 'YOUR_ID',
 subreddit = reddit.subreddit("test")
 
 
+# This function filters through the past 5 posts on the /r/test subreddit, 
+# and searches the comments for a call to "uciWikiBot".
 def pastBot():
     posts = subreddit.new(limit = 5)
     for p in posts:
@@ -25,6 +27,9 @@ def pastBot():
                 print("Comment posted")
 
 
+# This function filters through live comments in the /r/test subreddit
+# searching for wikipedia links. Replies to these comments with a 3 sentence summary. 
+# -- Added uciWikiBot functionality to stream
 def streamBot():
     reply = ""
     for comment in subreddit.stream.comments():
