@@ -8,16 +8,12 @@ reddit = praw.Reddit(client_id = 'x',
                      password = 'x',
                      user_agent = 'web:WikiBot:1.0 (by /u/TheZotBot)')
 
-
-
-
 subreddit = reddit.subreddit("all")
 
 posts = subreddit.new(limit = 5)
 
 reply = ""
-    
-
+   
 
 for comment in subreddit.stream.comments():
     if 'wikipedia.org' in comment.body:
@@ -43,44 +39,3 @@ for comment in subreddit.stream.comments():
         reply = w.summary(keyword, 3)
         comment.reply("**Here is a summary of this Wikipedia Article:**\n" + reply)
 
-                
-                        
-
-
-
-
-
- 
-
-
-
-
-'''
-Functions of the bot...
-
-to start...   goes through comments of 5 recent posts
-after... streams comments
-
-
-
--Give wikipedia summaries upon request
-    wikipedia.summary(name, sentences = 4)
-    
-try:
-	w.summary('tit')
-except w.exceptions.DisambiguationError as e:
-	w.summary(e.options[0])
-	#what about other errors? just ignore
-
-
-
-    
--Give summaries of wikipedia links
-"https://en.m.wikipedia.org/wiki/Bang_Khun_Thian_District?wprov=sfla1"
-get bang_khun_thian_district from this
-
-
-
-
-
-'''
