@@ -15,6 +15,20 @@ posts = subreddit.new(limit = 5)
 reply = ""
    
 
+#Initially parsing the comments of 5 new posts
+for p in posts:
+    p.comments.replace_more(limit=None)
+    for comment in p.comments.list():
+        if "uciWikiBot:" in comment.body:
+            keyword = comment.body.split()[-1]
+            comment.reply("**Here is a summary of this article: " +
+                          w.summary(keyword, sentences=3))
+            print("Comment posted")
+  
+  
+
+
+  #Parsing of live comments 
 for comment in subreddit.stream.comments():
     if 'wikipedia.org' in comment.body:
         whole_comment = comment.body.split()
