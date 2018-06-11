@@ -62,20 +62,4 @@ if __name__ == "__main__":
     streamBot()
 
     
-    
-    
- '''
- import praw
-import wikipedia
-
-
-reddit = praw.Reddit(client_id= "MyLR0f0xNdHiqQ",
-                     client_secret = "0HiOXaQG-F0IUIRo8HWMtGECB2E",
-                     username = "TheZotBot",
-                     password = "password",
-                     user_agent = 'web:WikiBot:1.0 (by /u/TheZotBot)')
-
-
-
- 
- '''
+   
